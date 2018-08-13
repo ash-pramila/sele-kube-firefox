@@ -36,11 +36,11 @@ public class SimpleKubSeleniumGrid {
 			System.out.println("Exception is=="+e.getMessage());
 		}
 		DesiredCapabilities dcp = new DesiredCapabilities();
-		dcp.setCapability(CapabilityType.BROWSER_NAME, BrowserType.CHROME);
+		dcp.setCapability(CapabilityType.BROWSER_NAME, BrowserType.FIREFOX);
 		dcp.setCapability(CapabilityType.PLATFORM, Platform.LINUX);
 		dcp.setCapability(CapabilityType.SUPPORTS_APPLICATION_CACHE, true);
 		dcp.setCapability(CapabilityType.SUPPORTS_NETWORK_CONNECTION, true);
-		dcp.setCapability("name", "GoogleTest");
+		dcp.setCapability("name", "GoogleTestFirefox");
 		dcp.setCapability("idleTimeout", 150);
 		//driver = new RemoteWebDriver(new URL("http://35.193.7.170:4444/wd/hub"),dcp);
 		driver = new RemoteWebDriver(new URL(pro.getProperty("selenium.url")),dcp);
@@ -63,8 +63,8 @@ public class SimpleKubSeleniumGrid {
 		//right driver.findElement(By.id("lst-ib")).sendKeys(Keys.ENTER);
 		driver.findElement(By.id(pro.getProperty("searchbox"))).sendKeys(Keys.ENTER);
 		System.out.println("search clicked");
-		Cookie cookie = new Cookie("zaleniumTestPassed", "true");
-	    driver.manage().addCookie(cookie);
+		//Cookie cookie = new Cookie("zaleniumTestPassed", "true");
+	    //driver.manage().addCookie(cookie);
 		Thread.sleep(100);
 	}
 
